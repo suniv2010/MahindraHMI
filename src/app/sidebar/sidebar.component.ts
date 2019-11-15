@@ -13,6 +13,9 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
   }
   isHomeRoute() {
-    return this.router.url != '/';
+    if (this.router.url == '/' || this.router.url == '/login/forget-password') {
+      return false;
+    }
+    return true;
   }
 }

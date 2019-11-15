@@ -9,29 +9,36 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
 import { AddUserComponent } from './users/add-user/add-user.component';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
 // tslint:disable-next-line:max-line-length
-import {  
-  MatButtonModule,  
-  MatMenuModule,  
-  MatToolbarModule,  
-  MatIconModule,  
-  MatCardModule,  
-  MatFormFieldModule,  
-  MatInputModule,  
-  MatDatepickerModule,  
-  MatDatepicker,  
+import {
+  MatButtonModule,
+  MatMenuModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDatepickerModule,
   MatCheckboxModule,
-  MatNativeDateModule,  
-  MatRadioModule,  
-  MatSelectModule,  
-  MatOptionModule, 
-  MatSlideToggleModule,ErrorStateMatcher,ShowOnDirtyErrorStateMatcher  
+  MatNativeDateModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatSlideToggleModule,
+  ErrorStateMatcher,
+  ShowOnDirtyErrorStateMatcher
 } from '@angular/material';
+
 const routes: Routes = [
   {
     path: '',
     component: LoginComponent
+  },
+  {
+    path: 'login/forget-password',
+    component: ForgetPasswordComponent
   },
   {
     path: 'users',
@@ -46,7 +53,8 @@ const routes: Routes = [
     LoginComponent,
     UsersComponent,
     SidebarComponent,
-    AddUserComponent
+    AddUserComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -54,39 +62,40 @@ const routes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     DataTablesModule,
-    ReactiveFormsModule,  
-    MatButtonModule,  
-    MatMenuModule,  
-    MatToolbarModule,  
-    MatIconModule,  
-    MatCardModule,  
-    BrowserAnimationsModule,  
-    MatFormFieldModule,  
-    MatInputModule,  
-    MatDatepickerModule,  
-    MatNativeDateModule,  
-    MatRadioModule,  
-    MatSelectModule,  
-    MatOptionModule,  
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FormsModule
   ],
-  exports: [  
-    MatButtonModule,  
-    MatMenuModule,  
-    MatToolbarModule,  
-    MatIconModule,  
-    MatCardModule,  
-    BrowserAnimationsModule,  
-    MatFormFieldModule,  
-    MatInputModule,  
-    MatDatepickerModule,  
-    MatNativeDateModule,  
-    MatRadioModule,  
-    MatSelectModule,  
-    MatOptionModule,  
-    MatSlideToggleModule  
-  ],  
+  exports: [
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSlideToggleModule
+  ],
   providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher} ],
   bootstrap: [AppComponent],
   entryComponents: [

@@ -10,23 +10,21 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-forget-password',
+  templateUrl: './forget-password.component.html',
+  styleUrls: ['./forget-password.component.css']
 })
-export class LoginComponent implements OnInit {
+export class ForgetPasswordComponent implements OnInit {
 
   constructor() { }
+
   userNameFormControl = new FormControl('', [
     Validators.required,
   ]);
 
-  passwordFormControl = new FormControl('', [
-    Validators.required,
-  ]);
-
   userNameMatcher = new MyErrorStateMatcher();
-  passwordMatcher = new MyErrorStateMatcher();
+
   ngOnInit() {
   }
+
 }
