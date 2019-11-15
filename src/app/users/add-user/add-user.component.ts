@@ -66,6 +66,14 @@ export class AddUserComponent implements OnInit {
   }
 
   onChanges(): void {
+
+    //first item set to true
+    this.addUserForm.controls.assignaccess['controls'].forEach((o, i) => {
+      if(i===0){
+        o.value = true;
+      }
+  
+})
     // Subscribe to changes on the selectAll checkbox
     this.addUserForm.get('selectAll').valueChanges.subscribe(bool => {
       this.addUserForm
@@ -73,9 +81,10 @@ export class AddUserComponent implements OnInit {
         .patchValue(Array(this.assignaccess.length).fill(bool), { emitEvent: false });
     });
 
-    // Subscribe to changes on the music preference checkboxes
+    // Subscribe to changes on the assignaccess preference checkboxes
     this.addUserForm.get('assignaccess').valueChanges.subscribe(val => {
       const allSelected = val.every(bool => bool);
+     
       if (this.addUserForm.get('selectAll').value !== allSelected) {
         this.addUserForm.get('selectAll').patchValue(allSelected, { emitEvent: false });
       }
