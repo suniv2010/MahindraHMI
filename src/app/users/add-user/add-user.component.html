@@ -1,0 +1,97 @@
+<mat-toolbar color="primary">  
+    <span>User Creation</span>  
+     
+  
+</mat-toolbar>  
+  
+<!-- Card container that binds all togather -->  
+<mat-card>  
+    <!-- Title of an Card -->  
+  
+  
+    <!-- Actual content starts from here -->  
+    <mat-card-content>  
+        <form [formGroup]="addUserForm" (ngSubmit)="onFormSubmit(addUserForm.value)">  
+            <table>  
+                <tr>  
+                    <td >  
+                        <mat-form-field class="demo-full-width">  
+                            <input formControlName="username" matInput placeholder="User Name">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!addUserForm.get('username').valid && addUserForm.get('username').touched">Please enter user Name !!!</span>  
+                        </mat-error>  
+                    </td>  
+                    <td>  
+                        <mat-form-field class="demo-full-width">  
+                            <input type="password" formControlName="password" matInput placeholder="Password">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!addUserForm.get('password').valid && addUserForm.get('password').touched">Please enter password !!!</span>  
+                        </mat-error>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td >  
+                        <mat-form-field class="demo-full-width">  
+                            <input type="password" formControlName="confirmpassword" matInput placeholder="Confirm Password">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!addUserForm.get('confirmpassword').valid && addUserForm.get('confirmpassword').touched">Please confirm password !!!</span>  
+                        </mat-error>  
+                    </td> 
+                    <td >  
+                            <mat-form-field class="demo-full-width">  
+                                <input formControlName="mobile" matInput placeholder="Mobile Number">  
+                            </mat-form-field>  
+                            <mat-error>  
+                                <span *ngIf="!addUserForm.get('mobile').valid && addUserForm.get('mobile').touched">Please enter mobile number !!!</span>  
+                            </mat-error>   
+                        </td>   
+                </tr>  
+               
+                <tr>  
+                    <td>  
+                            <mat-form-field class="demo-full-width">  
+                                    <input formControlName="email" matInput placeholder="Email">  
+                                    <mat-hint>use like : demo@demo.com</mat-hint>  
+                                    <mat-error>  
+                                        <span *ngIf="!addUserForm.get('email').valid && addUserForm.get('email').touched">Enter proper Email !!!</span>  
+                                    </mat-error>  
+                                </mat-form-field> 
+                    </td>  
+                    
+                </tr>  
+              
+                 
+            </table> 
+            <table>
+                    
+                    <tr>
+                            <td>  
+                                    <label>
+                                            <input type="checkbox" formControlName="selectAll">
+                                            Select/Deselect all
+                                          </label>
+                                          <br>
+                                <div class="col-4" style="display: inline-table;" *ngFor="let genre of addUserForm.controls['assignaccess'].controls; let i = index">
+                                         
+                                          <label formArrayName="assignaccess" >
+                                            <input type="checkbox" [formControlName]="i">
+                                            <span style="display: inline-table;width:200px">{{assignaccess[i].name}}</span>
+                                          </label>
+                                        </div>
+                              
+                            </td>  
+                       </tr>
+                       
+                      
+                        <tr>  
+                            <td class="content-center">  
+                                <button mat-raised-button [disabled]="!addUserForm.valid" color="accent">Submit</button>  
+                            </td>  
+                        </tr>  
+            </table> 
+        </form>  
+    </mat-card-content>  
+</mat-card>  

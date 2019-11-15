@@ -1,1 +1,8 @@
-<p>users works!</p>
+<div class="my-3">
+    <div class="col-8"><h4>Training List</h4></div>
+    <button mat-raised-button (click)="addTraining()" color="primary">Add new training</button>  
+
+    <div class="clearfix"></div>
+    </div>
+
+<table datatable [dtOptions]="dtOptions" class="row-border hover"></table>
