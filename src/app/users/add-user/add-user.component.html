@@ -12,59 +12,66 @@
     <!-- Actual content starts from here -->  
     <mat-card-content>  
         <form [formGroup]="addUserForm" (ngSubmit)="onFormSubmit(addUserForm.value)">  
-            <table>  
-                <tr>  
-                    <td >  
-                        <mat-form-field class="demo-full-width">  
-                            <input formControlName="username" matInput placeholder="User Name">  
-                        </mat-form-field>  
-                        <mat-error>  
-                            <span *ngIf="!addUserForm.get('username').valid && addUserForm.get('username').touched">Please enter user Name !!!</span>  
-                        </mat-error>  
-                    </td>  
-                    <td>  
-                        <mat-form-field class="demo-full-width">  
-                            <input type="password" formControlName="password" matInput placeholder="Password">  
-                        </mat-form-field>  
-                        <mat-error>  
-                            <span *ngIf="!addUserForm.get('password').valid && addUserForm.get('password').touched">Please enter password !!!</span>  
-                        </mat-error>  
-                    </td>  
-                </tr>  
-                <tr>  
-                    <td >  
-                        <mat-form-field class="demo-full-width">  
-                            <input type="password" formControlName="confirmpassword" matInput placeholder="Confirm Password">  
-                        </mat-form-field>  
-                        <mat-error>  
-                            <span *ngIf="!addUserForm.get('confirmpassword').valid && addUserForm.get('confirmpassword').touched">Please confirm password !!!</span>  
-                        </mat-error>  
-                    </td> 
-                    <td >  
-                            <mat-form-field class="demo-full-width">  
-                                <input formControlName="mobile" matInput placeholder="Mobile Number">  
-                            </mat-form-field>  
-                            <mat-error>  
-                                <span *ngIf="!addUserForm.get('mobile').valid && addUserForm.get('mobile').touched">Please enter mobile number !!!</span>  
-                            </mat-error>   
-                        </td>   
-                </tr>  
-               
-                <tr>  
-                    <td>  
-                            <mat-form-field class="demo-full-width">  
-                                    <input formControlName="email" matInput placeholder="Email">  
-                                    <mat-hint>use like : demo@demo.com</mat-hint>  
+
+                <div class="row">
+                        <div class="col-sm-6">
+                                <mat-form-field class="demo-full-width">  
+                                        <input formControlName="username" matInput placeholder="User Name">  
+                                    </mat-form-field>  
                                     <mat-error>  
-                                        <span *ngIf="!addUserForm.get('email').valid && addUserForm.get('email').touched">Enter proper Email !!!</span>  
+                                        <span *ngIf="!addUserForm.get('username').valid && addUserForm.get('username').touched">Please enter user Name !!!</span>  
                                     </mat-error>  
-                                </mat-form-field> 
-                    </td>  
-                    
-                </tr>  
-              
-                 
-            </table> 
+                           
+                          </div>
+                        
+                        <div class="col-sm-6">
+                                <mat-form-field class="demo-full-width">  
+                                        <input type="password" formControlName="password" matInput placeholder="Password">  
+                                    </mat-form-field>  
+                                    <mat-error>  
+                                        <span *ngIf="!addUserForm.get('password').valid && addUserForm.get('password').touched">Please enter password !!!</span>  
+                                    </mat-error>  
+                        </div>
+                      </div>
+                      <div class="row">
+                            <div class="col-sm-6">
+                                    <mat-form-field class="demo-full-width">  
+                                            <input type="password" formControlName="confirmpassword" matInput placeholder="Confirm Password">  
+                                        </mat-form-field>  
+                                        <mat-error>  
+                                            <span *ngIf="!addUserForm.get('confirmpassword').valid && addUserForm.get('confirmpassword').touched">Please confirm password !!!</span>  
+                                        </mat-error>  
+                               
+                              </div>
+                           
+                            <div class="col-sm-6">
+                                    <mat-form-field class="demo-full-width">  
+                                            <input formControlName="mobile" matInput placeholder="Mobile Number">  
+                                        </mat-form-field>  
+                                        <mat-error>  
+                                            <span *ngIf="!addUserForm.get('mobile').valid && addUserForm.get('mobile').touched">Please enter mobile number !!!</span>  
+                                        </mat-error>  
+                            </div>
+                          </div>
+                          <div class="row">
+                                <div class="col-sm-6">
+                                        <mat-form-field class="demo-full-width">  
+                                                <input formControlName="email" matInput placeholder="Email">  
+                                                <mat-hint>use like : demo@demo.com</mat-hint>  
+                                                <mat-error>  
+                                                    <span *ngIf="!addUserForm.get('email').valid && addUserForm.get('email').touched">Enter proper Email !!!</span>  
+                                                </mat-error>  
+                                            </mat-form-field> 
+                                   
+                                  </div>
+                               
+                                <div class="col-sm-6">
+                                  
+                                </div>
+                              </div>
+
+
+           
             <table>
                     
                     <tr>

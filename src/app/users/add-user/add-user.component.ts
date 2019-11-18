@@ -4,6 +4,7 @@ import { FormBuilder, Validators,ValidatorFn, FormArray, FormControl,FormGroup, 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-user',
@@ -39,8 +40,6 @@ export class AddUserComponent implements OnInit {
     { id: 17, name: 'Production Access' },
     { id: 18, name: 'View Users' }
   ];
-  
-  
 
   constructor(public dialogRef: MatDialogRef<AddUserComponent>,private fb: FormBuilder) { 
 
@@ -49,7 +48,7 @@ export class AddUserComponent implements OnInit {
     // Create a FormControl for the select/unselect all checkbox
     const selectAllControl = new FormControl(false);
 
-    this.addUserForm = fb.group({  
+    this.addUserForm = fb.group({
       'username' : [null, Validators.required],  
       'password' : [null, Validators.required],  
       'confirmpassword' : [null, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(500)])],  
@@ -66,7 +65,6 @@ export class AddUserComponent implements OnInit {
   }
 
   onChanges(): void {
-
     //first item set to true
     this.addUserForm.controls.assignaccess['controls'].forEach((o, i) => {
       if(i===0){
@@ -84,7 +82,6 @@ export class AddUserComponent implements OnInit {
     // Subscribe to changes on the assignaccess preference checkboxes
     this.addUserForm.get('assignaccess').valueChanges.subscribe(val => {
       const allSelected = val.every(bool => bool);
-     
       if (this.addUserForm.get('selectAll').value !== allSelected) {
         this.addUserForm.get('selectAll').patchValue(allSelected, { emitEvent: false });
       }
@@ -93,15 +90,42 @@ export class AddUserComponent implements OnInit {
 
 
 
-  onFormSubmit(form:NgForm)  
-  {  
+  onFormSubmit(form:NgForm){
     const selectedPreferences = this.addUserForm.value.assignaccess
     .map((checked, index) => checked ? this.assignaccess[index].name : null)
     .filter(value => value !== null);
-console.log(form);
-    console.log(selectedPreferences)
-    
-  }  
+if(selectedPreferences){
+  swal({
+    title:"Success",
+    text: "Successfully created user "+this.addUserForm.value.username,
+    buttons: {
+           cancel: true,
+           confirm: "OK"
+    }
+} as any);
+
+}
+   /*
+    swal({
+        title: "Are you sure?",
+        text: "Are you sure to delete the menu? It cannot be undone.",
+        icon: "warning",
+        dangerMode: true,
+        buttons: {
+            cancel: "Cancel",
+            ok: "OK"
+        }
+    } as any).then( val => {
+    if(val)  {
+            swal({
+                 title: "Thanks!",
+                 text: "You click"
+                 });
+             }
+});
+*/
+   
+  }
 
   close(): void {
     this.dialogRef.close();

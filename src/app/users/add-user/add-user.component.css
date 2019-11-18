@@ -11,3 +11,15 @@
 #new_training{
     margin-bottom: 10px;
 }
+
+.mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+}
+    
+
+.demo-full-width{
+    width: 100% !important;
+}

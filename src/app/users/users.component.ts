@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer  } from '@angular/core';
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { AddUserComponent } from '../users/add-user/add-user.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -9,7 +10,7 @@ import { AddUserComponent } from '../users/add-user/add-user.component';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog,private renderer: Renderer, private router: Router) { }
 
   dtOptions: DataTables.Settings = {};
   message;
@@ -18,7 +19,7 @@ export class UsersComponent implements OnInit {
     this.message = info.id;
     console.log(index);
   }
-
+  
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -51,8 +52,18 @@ export class UsersComponent implements OnInit {
       {
         title: 'Head',
         data: 'head'
-      }],
-      rowCallback: (row: Node, data: any[] | Object, index: number) => {
+      },
+      {
+        title: 'Action',
+        render: function (id: number) {
+                        return '<div class=\'actions-buttons center\' id=\'' + id + '\'>'
+                            + '<button class="waves-effect btn" view-person-id="3">Delete</button> '
+                            + '<button class="waves-effect btn" view-person-id="3">Edit</button>'
+                            + '</div>';
+                    }
+      }
+    ],
+      /*rowCallback: (row: Node, data: any[] | Object, index: number) => {
         const self = this;
         // Unbind first in order to avoid any duplicate handler
         // (see https://github.com/l-lin/angular-datatables/issues/87)
@@ -61,10 +72,17 @@ export class UsersComponent implements OnInit {
           self.someClickHandler(data,index);
         });
         return row;
-      }
+      }*/
     };
   }
-
+// tslint:disable-next-line:use-lifecycle-interface
+ngAfterViewInit(): void {
+  this.renderer.listenGlobal('document', 'click', (event) => {
+    if (event.target.hasAttribute("view-person-id")) {
+      this.router.navigate(["/person/" + event.target.getAttribute("view-person-id")]);
+    }
+  });
+}
   addTraining() {
     this.isPopupOpened = true;
     const dialogRef = this.dialog.open(AddUserComponent, {

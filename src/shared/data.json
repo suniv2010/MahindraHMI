@@ -1,19 +1,30 @@
 {
     "data": [
       {
-        "id": 860,
-        "firstName": "Superman",
-        "lastName": "Yoda"
+        "username": "sunitha",
+        "usertype": "FOTA Initiator",
+        "status": "active",
+        "activationdate": "",
+        "initiator": "ABCD123",
+        "approver": "WXYZ1234",
+        "head": "xxxx"
       },
       {
-        "id": 870,
-        "firstName": "Foo",
-        "lastName": "Whateveryournameis"
+        "username": "ssssss",
+        "usertype": "FOTA Initiator",
+        "status": "active",
+        "activationdate": "",
+        "initiator": "ABCD123",
+        "approver": "WXYZ1234",
+        "head": "xxxx"
       },
-      {
-        "id": 590,
-        "firstName": "Toto",
-        "lastName": "Titi"
+      { "username": "xxxxxxx",
+        "usertype": "FOTA Initiator",
+        "status": "active",
+        "activationdate": "",
+        "initiator": "ABCD123",
+        "approver": "WXYZ1234",
+        "head": "xxxx"
       }
     ]
   }

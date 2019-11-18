@@ -9,8 +9,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
 import { AddUserComponent } from './users/add-user/add-user.component';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms'; 
-// tslint:disable-next-line:max-line-length
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 import {  
   MatButtonModule,  
   MatMenuModule,  
