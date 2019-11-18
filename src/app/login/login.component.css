@@ -1,0 +1,36 @@
+.base-container {
+    margin: auto;
+    width: 50%;
+    padding: 15px;
+  }
+  
+  .login-container {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .login-container > * {
+      width: 100%;
+    }
+    
+  .login-button-row button,
+  .login-button-row a {
+    margin:auto;
+    display:block;
+  }
+  
+  .row {
+    margin: 2%;
+    display: flex;
+  }
+  
+  .column {
+    flex: 50%;
+  }
+
+  a {
+    text-decoration: underline;
+    margin-right: 30px;
+    color: rgb(63, 81, 181);
+}
+ 

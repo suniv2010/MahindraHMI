@@ -10,28 +10,48 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
 import { AddUserComponent } from './users/add-user/add-user.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
 
-import {  
-  MatButtonModule,  
-  MatMenuModule,  
-  MatToolbarModule,  
-  MatIconModule,  
-  MatCardModule,  
-  MatFormFieldModule,  
-  MatInputModule,  
-  MatDatepickerModule,  
-  MatDatepicker,  
+// tslint:disable-next-line:max-line-length
+import {
+  MatButtonModule,
+  MatMenuModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDatepickerModule,
   MatCheckboxModule,
-  MatNativeDateModule,  
-  MatRadioModule,  
-  MatSelectModule,  
-  MatOptionModule, 
-  MatSlideToggleModule,ErrorStateMatcher,ShowOnDirtyErrorStateMatcher  
+  MatNativeDateModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatSlideToggleModule,
+  ErrorStateMatcher,
+  ShowOnDirtyErrorStateMatcher,
+  MatGridListModule
 } from '@angular/material';
+
+import { InithomeComponent } from './inithome/inithome.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
+
 const routes: Routes = [
   {
     path: '',
     component: LoginComponent
+  },
+  {
+    path: 'login/forget-password',
+    component: ForgetPasswordComponent
+  },
+  {
+    path: 'inithome',
+    component: InithomeComponent
+  },
+  {
+    path: 'fileupload',
+    component: FileuploadComponent
   },
   {
     path: 'users',
@@ -46,7 +66,10 @@ const routes: Routes = [
     LoginComponent,
     UsersComponent,
     SidebarComponent,
-    AddUserComponent
+    AddUserComponent,
+    ForgetPasswordComponent,
+    InithomeComponent,
+    FileuploadComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -54,39 +77,42 @@ const routes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     DataTablesModule,
-    ReactiveFormsModule,  
-    MatButtonModule,  
-    MatMenuModule,  
-    MatToolbarModule,  
-    MatIconModule,  
-    MatCardModule,  
-    BrowserAnimationsModule,  
-    MatFormFieldModule,  
-    MatInputModule,  
-    MatDatepickerModule,  
-    MatNativeDateModule,  
-    MatRadioModule,  
-    MatSelectModule,  
-    MatOptionModule,  
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatGridListModule,
+    FormsModule
   ],
-  exports: [  
-    MatButtonModule,  
-    MatMenuModule,  
-    MatToolbarModule,  
-    MatIconModule,  
-    MatCardModule,  
-    BrowserAnimationsModule,  
-    MatFormFieldModule,  
-    MatInputModule,  
-    MatDatepickerModule,  
-    MatNativeDateModule,  
-    MatRadioModule,  
-    MatSelectModule,  
-    MatOptionModule,  
-    MatSlideToggleModule  
-  ],  
+  exports: [
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSlideToggleModule,
+    MatGridListModule
+  ],
   providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher} ],
   bootstrap: [AppComponent],
   entryComponents: [

@@ -12,7 +12,12 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
   }
+
   isHomeRoute() {
-    return this.router.url != '/';
+    if (this.router.url == '/users') {
+      return true;
+    }
+    return false;
   }
+
 }
