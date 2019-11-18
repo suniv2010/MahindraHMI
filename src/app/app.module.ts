@@ -28,8 +28,11 @@ import {
   MatOptionModule,
   MatSlideToggleModule,
   ErrorStateMatcher,
-  ShowOnDirtyErrorStateMatcher
+  ShowOnDirtyErrorStateMatcher,
+  MatGridListModule
 } from '@angular/material';
+import { InithomeComponent } from './inithome/inithome.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
 
 const routes: Routes = [
   {
@@ -39,6 +42,14 @@ const routes: Routes = [
   {
     path: 'login/forget-password',
     component: ForgetPasswordComponent
+  },
+  {
+    path: 'inithome',
+    component: InithomeComponent
+  },
+  {
+    path: 'fileupload',
+    component: FileuploadComponent
   },
   {
     path: 'users',
@@ -54,7 +65,9 @@ const routes: Routes = [
     UsersComponent,
     SidebarComponent,
     AddUserComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    InithomeComponent,
+    FileuploadComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -78,6 +91,7 @@ const routes: Routes = [
     MatOptionModule,
     MatSlideToggleModule,
     MatCheckboxModule,
+    MatGridListModule,
     FormsModule
   ],
   exports: [
@@ -94,7 +108,8 @@ const routes: Routes = [
     MatRadioModule,
     MatSelectModule,
     MatOptionModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatGridListModule
   ],
   providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher} ],
   bootstrap: [AppComponent],
