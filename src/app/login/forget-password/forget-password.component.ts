@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroupDirective, NgForm } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material';
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import { FormControl, Validators, FormGroupDirective, NgForm, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-forget-password',
@@ -16,15 +8,19 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class ForgetPasswordComponent implements OnInit {
 
-  constructor() { }
+  forgetUserForm: FormGroup;
+  userNameFormControl = "";
 
-  userNameFormControl = new FormControl('', [
-    Validators.required,
-  ]);
+  ngOnInit(): void { }
 
-  userNameMatcher = new MyErrorStateMatcher();
+  constructor(private fb: FormBuilder) {
+    this.forgetUserForm = fb.group({
+      userNameFormControl: [null, Validators.required]
+    });
+  }
 
-  ngOnInit() {
+  onFormSubmit(form) {
+    console.log(form);
   }
 
 }
