@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, Validators,ValidatorFn, FormArray, FormControl,FormGroup, FormsModule,NgForm } from '@angular/forms';
+import { FormBuilder, Validators, ValidatorFn, FormArray, FormControl, FormGroup, FormsModule, NgForm } from '@angular/forms';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
@@ -13,13 +13,13 @@ import swal from 'sweetalert2';
 })
 export class AddUserComponent implements OnInit {
 
-  addUserForm: FormGroup;  
+  addUserForm: FormGroup;
   ordersData = [];
-  username:string='';  
-  password:string='';  
-  confirmpassword:string='';  
-  mobile:Date=null;  
-  email:string='';  
+  username = '';
+  password = '';
+  confirmpassword = '';
+  mobile: Date = null;
+  email = '';
   assignaccess = [
     { id: 1, name: 'User Creation' },
     { id: 2, name: 'Initiate FOTA' },
@@ -41,7 +41,7 @@ export class AddUserComponent implements OnInit {
     { id: 18, name: 'View Users' }
   ];
 
-  constructor(public dialogRef: MatDialogRef<AddUserComponent>,private fb: FormBuilder) { 
+  constructor(public dialogRef: MatDialogRef<AddUserComponent>, private fb: FormBuilder) {
 
     const formControls = this.assignaccess.map(control => new FormControl(false));
 
@@ -49,14 +49,14 @@ export class AddUserComponent implements OnInit {
     const selectAllControl = new FormControl(false);
 
     this.addUserForm = fb.group({
-      'username' : [null, Validators.required],  
-      'password' : [null, Validators.required],  
-      'confirmpassword' : [null, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(500)])],  
-      'mobile' : [null, Validators.required],  
-      'email':[null, Validators.required],  
-      'assignaccess': new FormArray(formControls),
-      'selectAll': selectAllControl
-    });  
+      username: [null, Validators.required],
+      password: [null, Validators.required],
+      confirmpassword: [null, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(500)])],
+      mobile: [null, Validators.required],
+      email: [null, Validators.required],
+      assignaccess: new FormArray(formControls),
+      selectAll: selectAllControl
+    });
 
   }
 
@@ -65,13 +65,14 @@ export class AddUserComponent implements OnInit {
   }
 
   onChanges(): void {
-    //first item set to true
-    this.addUserForm.controls.assignaccess['controls'].forEach((o, i) => {
-      if(i===0){
+    // first item set to true
+    // tslint:disable-next-line:no-string-literal
+    this.addUserForm.controls.assignacces['controls'].forEach((o, i) => {
+      if (i === 0) {
         o.value = true;
       }
-  
-})
+
+    });
     // Subscribe to changes on the selectAll checkbox
     this.addUserForm.get('selectAll').valueChanges.subscribe(bool => {
       this.addUserForm
@@ -90,46 +91,46 @@ export class AddUserComponent implements OnInit {
 
 
 
-  onFormSubmit(form:NgForm){
+  onFormSubmit(form: NgForm) {
     const selectedPreferences = this.addUserForm.value.assignaccess
-    .map((checked, index) => checked ? this.assignaccess[index].name : null)
-    .filter(value => value !== null);
-if(selectedPreferences){
-  swal({
-    title:"Success",
-    text: "Successfully created user "+this.addUserForm.value.username,
-    buttons: {
-           cancel: true,
-           confirm: "OK"
-    }
-} as any);
-
-}
-   /*
-    swal({
-        title: "Are you sure?",
-        text: "Are you sure to delete the menu? It cannot be undone.",
-        icon: "warning",
-        dangerMode: true,
+      .map((checked, index) => checked ? this.assignaccess[index].name : null)
+      .filter(value => value !== null);
+    if (selectedPreferences) {
+      swal({
+        title: 'Success',
+        text: 'Successfully created user ' + this.addUserForm.value.username,
         buttons: {
-            cancel: "Cancel",
-            ok: "OK"
+          cancel: true,
+          confirm: 'OK'
         }
-    } as any).then( val => {
-    if(val)  {
-            swal({
-                 title: "Thanks!",
-                 text: "You click"
-                 });
-             }
-});
-*/
-   
+      } as any);
+
+    }
+    /*
+     swal({
+         title: "Are you sure?",
+         text: "Are you sure to delete the menu? It cannot be undone.",
+         icon: "warning",
+         dangerMode: true,
+         buttons: {
+             cancel: "Cancel",
+             ok: "OK"
+         }
+     } as any).then( val => {
+     if(val)  {
+             swal({
+                  title: "Thanks!",
+                  text: "You click"
+                  });
+              }
+ });
+ */
+
   }
 
   close(): void {
     this.dialogRef.close();
-    }
+  }
 
 }
 function minSelectedCheckboxes(min = 1) {

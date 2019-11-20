@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+  }
+
+/* Create four equal columns that floats next to each other */
+.column-1 {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+.column-2 {
+    float: left;
+    width: 75%;
+    padding: 10px;
+  }
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.example-full-width {
+    width: 84%;
+  }
+
+  .mat-checkbox {
+    margin-top: 25px;
+  }
+
+  .button-row {
+    margin: 0 auto;
+  }
+
+  .mat-icon {
+    float : left;
+  }
+  
+  .center {
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+  }
