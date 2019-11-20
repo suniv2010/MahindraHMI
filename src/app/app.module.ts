@@ -35,6 +35,7 @@ import {
 
 import { InithomeComponent } from './inithome/inithome.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
+import { ViewUploadComponent } from './view-upload/view-upload.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent
+  },
+  {
+    path: 'viewupload',
+    component: ViewUploadComponent
   }
 
 ];
@@ -69,7 +74,8 @@ const routes: Routes = [
     AddUserComponent,
     ForgetPasswordComponent,
     InithomeComponent,
-    FileuploadComponent
+    FileuploadComponent,
+    ViewUploadComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
