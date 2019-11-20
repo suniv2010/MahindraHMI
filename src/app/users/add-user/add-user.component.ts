@@ -1,14 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  Validators,
-  ValidatorFn,
-  FormArray,
-  FormControl,
-  FormGroup,
-  FormsModule,
-  NgForm,
-} from '@angular/forms';
+import { FormBuilder, Validators, ValidatorFn, FormArray, FormControl, FormGroup, FormsModule, NgForm } from '@angular/forms';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
@@ -21,13 +12,14 @@ import swal from 'sweetalert2';
   styleUrls: ['./add-user.component.css'],
 })
 export class AddUserComponent implements OnInit {
+
   addUserForm: FormGroup;
   ordersData = [];
-  username: string = '';
-  password: string = '';
-  confirmpassword: string = '';
+  username = '';
+  password = '';
+  confirmpassword = '';
   mobile: Date = null;
-  email: string = '';
+  email = '';
   assignaccess = [
     { id: 1, name: 'User Creation' },
     { id: 2, name: 'Initiate FOTA' },
@@ -130,8 +122,8 @@ export class AddUserComponent implements OnInit {
         icon: "warning",
         dangerMode: true,
         buttons: {
-            cancel: "Cancel",
-            ok: "OK"
+          cancel: true,
+          confirm: 'OK'
         }
     } as any).then( val => {
     if(val)  {

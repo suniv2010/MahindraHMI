@@ -1,34 +1,66 @@
 <div class="base-container">
   <p>login works!</p>
-  <div class="login-container">
-    <mat-form-field>
-      <input matInput placeholder="User Name" [formControl]="userNameFormControl" [errorStateMatcher]="userNameMatcher">
-      <mat-hint>Enter your User Name!</mat-hint>
-      <mat-error *ngIf="userNameFormControl.hasError('required')">
-        User Name is <strong>required</strong>
+  <form
+    [formGroup]="loginUserForm"
+    (ngSubmit)="onFormSubmit(loginUserForm.value)"
+  >
+    <div class="login-container">
+      <mat-form-field>
+        <input
+          matInput
+          #userNameFormControl
+          placeholder="User Name"
+          formControlName="userNameFormControl"
+        />
+      </mat-form-field>
+      <mat-error
+        *ngIf="
+          userNameFormControl.errorState &&
+          userNameFormControl.hasError('required')
+        "
+      >
+        <strong>required</strong>
       </mat-error>
-    </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Password" [formControl]="passwordFormControl" [errorStateMatcher]="passwordMatcher">
-      <mat-hint>Enter your Password!</mat-hint>
-      <mat-error *ngIf="passwordFormControl.hasError('required')">
-        Password is <strong>required</strong>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Password"
+          formControlName="passwordFormControl"
+        />
+      </mat-form-field>
+      <mat-error>
+        <span
+          *ngIf="
+            !loginUserForm.get('passwordFormControl').valid &&
+            loginUserForm.get('passwordFormControl').touched
+          "
+          >Please enter password !!!</span
+        >
       </mat-error>
-    </mat-form-field>
 
-    <div class="row">
-      <div class="column">
-        <mat-checkbox>Remember Me</mat-checkbox>
+      <div class="row">
+        <div class="column">
+          <mat-checkbox>Remember Me</mat-checkbox>
+        </div>
+        <div>
+          <a float routerLink="login/forget-password/" color="primary"
+            >Forget Password?</a
+          >
+        </div>
       </div>
-      <div>
-        <a float routerLink="login/forget-password/" color="primary">Forget Password?</a>
+      <div class="main-div">
+        <div class="login-button-row">
+          <button
+            mat-raised-button
+            color="primary"
+            routerLink="/inithome"
+            (click)="onFormSubmit(loginUserForm)"
+          >
+            Log in
+          </button>
+        </div>
       </div>
     </div>
-    <div class="main-div">
-      <div class="login-button-row">
-        <button mat-raised-button color="primary" routerLink="/inithome">Log in </button>
-      </div>
-    </div>
-  </div>
+  </form>
 </div>

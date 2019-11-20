@@ -9,7 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
 import { AddUserComponent } from './users/add-user/add-user.component';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
 
 // tslint:disable-next-line:max-line-length
@@ -36,6 +36,7 @@ import {
 import { InithomeComponent } from './inithome/inithome.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { ViewUploadComponent } from './view-upload/view-upload.component';
+import { FileuploadscreenComponent } from './fileupload/fileuploadscreen/fileuploadscreen.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'fileupload',
     component: FileuploadComponent
+  },
+  {
+    path: 'fileupload/fileuploadscreen',
+    component: FileuploadscreenComponent
   },
   {
     path: 'users',
@@ -75,7 +80,8 @@ const routes: Routes = [
     ForgetPasswordComponent,
     InithomeComponent,
     FileuploadComponent,
-    ViewUploadComponent
+    ViewUploadComponent,
+    FileuploadscreenComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
