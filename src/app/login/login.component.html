@@ -6,37 +6,23 @@
   >
     <div class="login-container">
       <mat-form-field>
-        <input
-          matInput
-          #userNameFormControl
-          placeholder="User Name"
-          formControlName="userNameFormControl"
-        />
+        <input matInput #userNameFormControl placeholder="User Name" formControlName="userNameFormControl" />
       </mat-form-field>
-      <mat-error
-        *ngIf="
-          userNameFormControl.errorState &&
-          userNameFormControl.hasError('required')
-        "
-      >
-        <strong>required</strong>
+      <mat-error *ngIf="
+            !loginUserForm.get('userNameFormControl').valid &&
+            loginUserForm.get('userNameFormControl').touched
+        ">
+        Please enter User Name !!!
       </mat-error>
 
       <mat-form-field>
-        <input
-          matInput
-          placeholder="Password"
-          formControlName="passwordFormControl"
-        />
+        <input matInput placeholder="Password" formControlName="passwordFormControl" />
       </mat-form-field>
-      <mat-error>
-        <span
-          *ngIf="
-            !loginUserForm.get('passwordFormControl').valid &&
-            loginUserForm.get('passwordFormControl').touched
-          "
-          >Please enter password !!!</span
-        >
+      <mat-error *ngIf="
+                  !loginUserForm.get('passwordFormControl').valid &&
+                  loginUserForm.get('passwordFormControl').touched
+              ">
+        Please enter User Name !!!
       </mat-error>
 
       <div class="row">
@@ -44,19 +30,12 @@
           <mat-checkbox>Remember Me</mat-checkbox>
         </div>
         <div>
-          <a float routerLink="login/forget-password/" color="primary"
-            >Forget Password?</a
-          >
+          <a float routerLink="login/forget-password/" color="primary">Forget Password?</a>
         </div>
       </div>
       <div class="main-div">
         <div class="login-button-row">
-          <button
-            mat-raised-button
-            color="primary"
-            routerLink="/inithome"
-            (click)="onFormSubmit(loginUserForm)"
-          >
+          <button mat-raised-button color="primary" routerLink="/inithome" (click)="onFormSubmit(loginUserForm)">
             Log in
           </button>
         </div>
