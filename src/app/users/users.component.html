@@ -1,14 +1,16 @@
-<div class="my-4">
-    <div class="col-8"><h4>Training List</h4></div>
-    <div class="row">
-            <div class="col-2">
-    <button mat-raised-button (click)="addTraining()" color="primary">Add new training</button> 
-</div> 
-<div class="col-2">
-    <button mat-raised-button (click)="downloadExcel()" color="primary">Download Excel</button> 
-</div>
-</div>
-    <div class="clearfix"></div>
+<div class="row">
+    <div id="site-page-title" class="col-12 heading">
+        <h4>User List</h4>
     </div>
+</div>
+    <div class="col-12">
+      
+            <button mat-raised-button (click)="addTraining()">Add User</button>
+        
+            <button mat-raised-button (click)="downloadExcel()">Download Excel</button>
+      
+    </div>
+    <div class="clearfix"></div>
+
 
 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover"></table>

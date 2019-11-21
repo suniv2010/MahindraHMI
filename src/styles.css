@@ -1,22 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    margin: 0;
-    background: #F2F2F2;
-    font-family: 'Montserrat', sans-serif;
-    height: 100vh;
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    
 }
 
 #container {
-   display: grid;
-   grid-template-columns: 70px auto;
+    
+   width: 100%;  
    height: 100%;
 }
 
-   #content {
-       padding: 30px 50px;
+   #content {    
+ 
+ 
    }
 
- 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.heading{
+    padding-top: 5px;
+    padding-left:15px;
+    background: #918a8a;
+    z-index: -1;
+    font-size: 15px;
+   
+}
 
+#site-page-title{
+      position: relative;
+}
+.popup_header{
+    background: #e31837 !important;
+    color:#fff !important;
+}
+.row{
+    margin:0 auto;
+   }
+.row button{
+    margin:2px;
+    }
+button{
+    margin:2px !important;
+    background: #e31837 !important;
+    color:#fff !important;
+}
+
+.fa-10x {
+    font-size: 25em;
+    color:#6ba1ba
+}

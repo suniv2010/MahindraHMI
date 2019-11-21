@@ -1,16 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { UsersComponent } from './users/users.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 import { DataTablesModule } from 'angular-datatables';
-import { AddUserComponent } from './users/add-user/add-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
+
 
 // tslint:disable-next-line:max-line-length
 import {
@@ -33,48 +26,58 @@ import {
   MatGridListModule
 } from '@angular/material';
 
+import { InithomeComponent } from '../fota-initiator/inithome/inithome.component';
+import { FotaInitiatorComponent } from '../fota-initiator/fota-initiator/fota-initiator.component';
 
-import { TopNavigationComponent } from './top-navigation/top-navigation.component';
-
-
-const routes: Routes = [
+import { FileuploadComponent } from '../fota-initiator/fileupload/fileupload.component';
+import { ViewUploadComponent } from '../fota-initiator/view-upload/view-upload.component';
+import { FileuploadscreenComponent } from '../fota-initiator/fileupload/fileuploadscreen/fileuploadscreen.component';
+import { FotaNavComponent } from '../fota-initiator/fota-nav/fota-nav.component';
+const fotaRoutes: Routes = [
   {
     path: '',
-    component: LoginComponent
-  },
-  {
-    path: 'login/forget-password',
-    component: ForgetPasswordComponent
-  },
-  {
-    path: 'inithome',
-    loadChildren: () => import('./fota-initiator/fota-initiator.module').then(mod => mod.FotaInitiatorModule),
-    },
-  {
-    path: 'users',
-    component: UsersComponent
+    component: FotaInitiatorComponent,
+    children: [
+      
+       
+          {
+            path: '',
+            component: InithomeComponent
+          },
+          {
+            path: 'fileupload',
+            component: FileuploadComponent
+          },
+          {
+            path: 'fileupload/fileuploadscreen',
+            component: FileuploadscreenComponent
+          },
+         
+          {
+            path: 'viewupload',
+            component: ViewUploadComponent
+          }
+        
+      
+    ]
   }
-
 ];
 
+
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    UsersComponent,
-    SidebarComponent,
-    AddUserComponent,
-    ForgetPasswordComponent,
-   
-    TopNavigationComponent
-   
-   
+  declarations: [   
+    InithomeComponent,
+    FotaNavComponent,
+    FotaInitiatorComponent,
+    FileuploadComponent,
+    ViewUploadComponent,
+    FileuploadscreenComponent
   ],
   imports: [
-    RouterModule.forRoot(routes),
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    CommonModule,
+    RouterModule.forChild(fotaRoutes),
+   
     DataTablesModule,
     ReactiveFormsModule,
     MatButtonModule,
@@ -82,7 +85,7 @@ const routes: Routes = [
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    BrowserAnimationsModule,
+    
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
@@ -101,7 +104,7 @@ const routes: Routes = [
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    BrowserAnimationsModule,
+  
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
@@ -113,10 +116,6 @@ const routes: Routes = [
     MatGridListModule
   ],
   providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher} ],
-  bootstrap: [AppComponent],
   
-  entryComponents: [
-    AddUserComponent
-  ]
 })
-export class AppModule { }
+export class FotaInitiatorModule { }

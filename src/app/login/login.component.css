@@ -1,12 +1,25 @@
 .base-container {
-    margin: auto;
-    width: 50%;
-    padding: 15px;
+   
+   background-image: url('../../assets/desktop-banner-1440x613px.jpg') !important;
+   float:left;
+   width:100%;
+   height: 100%;
+   position: absolute;    
+    
   }
   
   .login-container {
-      display: flex;
-      flex-direction: column;
+    background: #a09d9d;
+    border: 3px solid #e31837;
+    padding:10px;
+    margin: 0;
+    position: relative; 
+    width:50%;
+    border-radius: 25px;
+    
+    
+    -ms-transform: translate(50%,50%);
+    transform: translate(50%, 90%);
     }
     
     .login-container > * {

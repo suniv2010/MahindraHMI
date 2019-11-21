@@ -1,0 +1,29 @@
+/* Body Styles */
+
+
+#site-header {
+    position: relative;
+    z-index: 3;
+    
+}
+
+header { min-height: 75px; }
+
+.eb-logo {
+    padding: 24px;
+    background: #e31837;
+    float: left;
+}
+
+  header.dark blockquote { color:#fff; }
+  header.light blockquote { color:#000; }
+  
+ 
+  
+  header.dark { background-color: #e31837; }
+  header.light { background-color: #fff; }
+  
+  /* Navigation Styles */
+  nav { position: relative;  }
+  
+  
