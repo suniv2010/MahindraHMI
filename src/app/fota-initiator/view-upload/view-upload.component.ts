@@ -10,20 +10,20 @@ import { Router } from '@angular/router';
 })
 export class ViewUploadComponent implements OnInit {
 
-  constructor(private dialog: MatDialog,private renderer: Renderer, private router: Router) { }
+  constructor(private dialog: MatDialog, private renderer: Renderer, private router: Router) { }
 
   dtOptions: DataTables.Settings = {};
   message;
   isPopupOpened = true;
-  someClickHandler(info: any,index: Number): void {
+  someClickHandler(info: any, index: Number): void {
     this.message = info.id;
     console.log(index);
   }
-  
 
-  ngOnInit(){
 
-  
+  ngOnInit() {
+
+
   this.dtOptions = {
     ajax: 'http://localhost:1337/userdetails/list',
     columns: [{
@@ -35,7 +35,7 @@ export class ViewUploadComponent implements OnInit {
     }, {
       title: 'Firmware File Name',
       data: 'usertype'
-    },{
+    }, {
       title: 'Applicable Segment',
       data: 'status'
     },
@@ -65,7 +65,7 @@ export class ViewUploadComponent implements OnInit {
     },
     {
       title: 'Actions',
-      render: function (id: number) {
+      render(id: number) {
                       return '<div class=\'actions-buttons center\' id=\'' + id + '\'>'
                           + '<i class="fas fa-edit fa-lg" style="color: #3f51b5;" edit></i> '
                           + '<i class="fas fa-times-circle fa-lg" style="color: #3f51b5;" delete></i></i> '
@@ -88,8 +88,8 @@ export class ViewUploadComponent implements OnInit {
 }
 ngAfterViewInit(): void {
   this.renderer.listenGlobal('document', 'click', (event) => {
-    if (event.target.hasAttribute("edit")) {
-      this.router.navigate(["/person/" + event.target.getAttribute("edit")]);
+    if (event.target.hasAttribute('edit')) {
+      this.router.navigate(['/person/' + event.target.getAttribute('edit')]);
     }
   });
 }

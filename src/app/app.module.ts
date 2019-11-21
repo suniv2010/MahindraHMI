@@ -11,8 +11,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { AddUserComponent } from './users/add-user/add-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
-// tslint:disable-next-line:max-line-length
 import {
   MatButtonModule,
   MatMenuModule,
@@ -93,7 +93,9 @@ const routes: Routes = [
     MatSlideToggleModule,
     MatCheckboxModule,
     MatGridListModule,
-    FormsModule
+    FormsModule,
+    FileUploadModule
+
   ],
   exports: [
     MatButtonModule,
@@ -112,7 +114,7 @@ const routes: Routes = [
     MatSlideToggleModule,
     MatGridListModule
   ],
-  providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher} ],
+  providers: [{ provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }],
   bootstrap: [AppComponent],
   
   entryComponents: [

@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer  } from '@angular/core';
-import { MatDialog, MatDialogRef } from "@angular/material";
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { AddUserComponent } from '../users/add-user/add-user.component';
 import { Router } from '@angular/router';
 
@@ -10,16 +10,16 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private dialog: MatDialog,private renderer: Renderer, private router: Router) { }
+  constructor(private dialog: MatDialog, private renderer: Renderer, private router: Router) { }
 
   dtOptions: DataTables.Settings = {};
   message;
   isPopupOpened = true;
-  someClickHandler(info: any,index: Number): void {
+  someClickHandler(info: any, index: Number): void {
     this.message = info.id;
     console.log(index);
   }
-  
+
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -33,7 +33,7 @@ export class UsersComponent implements OnInit {
       }, {
         title: 'User type',
         data: 'usertype'
-      },{
+      }, {
         title: 'Status',
         data: 'status'
       },
@@ -55,7 +55,7 @@ export class UsersComponent implements OnInit {
       },
       {
         title: 'Action',
-        render: function (id: number) {
+        render(id: number) {
                         return '<div class=\'actions-buttons center\' id=\'' + id + '\'>'
                             + '<button class="waves-effect btn" view-person-id="3">Delete</button> '
                             + '<button class="waves-effect btn" view-person-id="3">Edit</button>'
@@ -78,8 +78,8 @@ export class UsersComponent implements OnInit {
 // tslint:disable-next-line:use-lifecycle-interface
 ngAfterViewInit(): void {
   this.renderer.listenGlobal('document', 'click', (event) => {
-    if (event.target.hasAttribute("view-person-id")) {
-      this.router.navigate(["/person/" + event.target.getAttribute("view-person-id")]);
+    if (event.target.hasAttribute('view-person-id')) {
+      this.router.navigate(['/person/' + event.target.getAttribute('view-person-id')]);
     }
   });
 }

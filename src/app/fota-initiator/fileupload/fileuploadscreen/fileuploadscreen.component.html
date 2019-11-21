@@ -1,41 +1,28 @@
 <p>fileuploadscreen works!</p>
 
-<form [formGroup]="fileUploadForm">
+<form [formGroup]="fileUploadForm" ng2FileDrop [uploader]="uploader">
   <div class="row">
     <div class="column-1">
       <mat-form-field>
         <mat-label>Applicable Segment</mat-label>
         <mat-select required formControlName="ApplicableSegmentsFormControl">
-          <mat-option
-            *ngFor="let ApplicableSegment of ApplicableSegments"
-            [value]="ApplicableSegment.value"
-          >
+          <mat-option *ngFor="let ApplicableSegment of ApplicableSegments" [value]="ApplicableSegment.value">
             {{ ApplicableSegment.value }}
           </mat-option>
         </mat-select>
         <mat-error>
-          <span
-            *ngIf="
+          <span *ngIf="
               !fileUploadForm.get('ApplicableSegmentsFormControl').valid &&
               fileUploadForm.get('ApplicableSegmentsFormControl').touched
-            "
-            >Please enter user Name !!!</span
-          >
+            ">Please enter user Name !!!</span>
         </mat-error>
       </mat-form-field>
     </div>
     <div class="column-1">
       <mat-form-field>
         <mat-label>Applicable Variant</mat-label>
-        <mat-select
-          multiple
-          required
-          formControlName="ApplicableVariantFormControl"
-        >
-          <mat-option
-            *ngFor="let ApplicableVariant of ApplicableVariants"
-            [value]="ApplicableVariant.value"
-          >
+        <mat-select multiple required formControlName="ApplicableVariantFormControl">
+          <mat-option *ngFor="let ApplicableVariant of ApplicableVariants" [value]="ApplicableVariant.value">
             {{ ApplicableVariant.value }}
           </mat-option>
         </mat-select>
@@ -44,15 +31,8 @@
     <div class="column-1">
       <mat-form-field>
         <mat-label>Applicable Sub-Variant</mat-label>
-        <mat-select
-          multiple
-          required
-          formControlName="ApplicableSubVariantFormControl"
-        >
-          <mat-option
-            *ngFor="let ApplicableSubVariant of ApplicableSubVariants"
-            [value]="ApplicableSubVariant.value"
-          >
+        <mat-select multiple required formControlName="ApplicableSubVariantFormControl">
+          <mat-option *ngFor="let ApplicableSubVariant of ApplicableSubVariants" [value]="ApplicableSubVariant.value">
             {{ ApplicableSubVariant.value }}
           </mat-option>
         </mat-select>
@@ -74,10 +54,7 @@
       <mat-form-field>
         <mat-label>CCU Variant</mat-label>
         <mat-select required formControlName="CCUVariantFormControl">
-          <mat-option
-            *ngFor="let CCUVariant of CCUVariants"
-            [value]="CCUVariant.value"
-          >
+          <mat-option *ngFor="let CCUVariant of CCUVariants" [value]="CCUVariant.value">
             {{ CCUVariant.value }}
           </mat-option>
         </mat-select>
@@ -85,53 +62,52 @@
     </div>
     <div class="column-2">
       <mat-form-field class="example-full-width">
-        <textarea
-          matInput
-          placeholder="Remarks"
-          rows="1"
-          fromControlName="remarksFormControl"
-        ></textarea>
+        <textarea matInput placeholder="Remarks" rows="1" fromControlName="remarksFormControl"></textarea>
       </mat-form-field>
     </div>
   </div>
   <div class="row">
     <div class="column-2">
       <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="Assign Name"
-          formControlName="AassignNameFormControl"
-        />
+        <input matInput placeholder="Assign Name" formControlName="AassignNameFormControl" />
       </mat-form-field>
       <mat-error>
-        <span
-          *ngIf="
-            !fileUploadForm.get('AassignNameFormControl').valid &&
-            !fileUploadForm.get('AassignNameFormControl').touched
-          "
-          >Please enter Assign Name !!!</span
-        >
+        <span *ngIf="
+              !fileUploadForm.get('AassignNameFormControl').valid &&
+              fileUploadForm.get('AassignNameFormControl').touched
+            ">Please enter Assign Name !!!</span>
       </mat-error>
     </div>
     <div class="column-1 mat-checkbox">
       <mat-checkbox>MULTI PACKET</mat-checkbox>
     </div>
   </div>
-  <div class="row">
-    <button>
-      <mat-icon>library_add</mat-icon>
-      <input type="file" required formControlName="fileFormControl" />
-    </button>
-  </div>
-  <div class="row center">
-    <div class="button-row">
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="onFormSubmit(fileUploadForm.value)"
-      >
-        Save
-      </button>
-    </div>
+  <input formControlName="fileFormControl" type="file" ng2FileSelect [uploader]="uploader" multiple required /><br />
+  <br>
+  <table *ngIf="uploader.queue.length > 0  ">
+    <thead>
+      <tr>
+        <th width="90%">
+          File Name
+        </th>
+        <th width="10%">
+          Remove
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of uploader.queue">
+        <th width="90%">
+          {{item._file.name}}
+        </th>
+        <th class="text-center" width="10%">
+          <mat-icon (click)="item.remove()">delete</mat-icon>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <div class="center">
+    <button mat-raised-button color="primary" type="submit" (click)=uploadSubmit()>Upload Data</button>
   </div>
 </form>

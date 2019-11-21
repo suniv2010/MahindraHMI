@@ -1,5 +1,6 @@
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FileUploader } from 'ng2-file-upload';
 
 export interface ApplicableSegment {
   value: string;
@@ -22,9 +23,9 @@ export interface CCUVariant {
 }
 
 @Component({
-  selector: "app-fileuploadscreen",
-  templateUrl: "./fileuploadscreen.component.html",
-  styleUrls: ["./fileuploadscreen.component.css"]
+  selector: 'app-fileuploadscreen',
+  templateUrl: './fileuploadscreen.component.html',
+  styleUrls: ['./fileuploadscreen.component.css']
 })
 export class FileuploadscreenComponent implements OnInit {
   fileUploadForm: FormGroup;
@@ -43,33 +44,61 @@ export class FileuploadscreenComponent implements OnInit {
   }
 
   ApplicableSegments: ApplicableSegment[] = [
-    { value: "FD" },
-    { value: "AD" },
-    { value: "MUSA" },
-    { value: "MSE" }
+    { value: 'FD' },
+    { value: 'AD' },
+    { value: 'MUSA' },
+    { value: 'MSE' }
   ];
 
   ApplicableVariants: ApplicableVariant[] = [
-    { value: "NOVO" },
-    { value: "YUVO" },
-    { value: "JIVO" }
+    { value: 'NOVO' },
+    { value: 'YUVO' },
+    { value: 'JIVO' }
   ];
 
   ApplicableSubVariants: ApplicableSubVariant[] = [
-    { value: "Platform 1" },
-    { value: "Platform 2" }
+    { value: 'Platform 1' },
+    { value: 'Platform 2' }
   ];
 
   FWTypes: FWType[] = [
-    { value: "L1 Firmware" },
-    { value: "L1 Firmware with GI" },
-    { value: "L2 Firmware" },
-    { value: "L2 Firmware with GI Root Certificate" }
+    { value: 'L1 Firmware' },
+    { value: 'L1 Firmware with GI' },
+    { value: 'L2 Firmware' },
+    { value: 'L2 Firmware with GI Root Certificate' }
   ];
 
-  CCUVariants: CCUVariant[] = [{ value: "Logger" }, { value: "Smart" }];
+  CCUVariants: CCUVariant[] = [{ value: 'Logger' }, { value: 'Smart' }];
 
-  ngOnInit() {}
+  public uploader: FileUploader = new FileUploader({
+    isHTML5: true
+  });
+
+  uploadSubmit() {
+    console.log(this.uploader);
+    console.log(this.fileUploadForm);
+    for (let i = 0; i < this.uploader.queue.length; i++) {
+      const fileItem = this.uploader.queue[i]._file;
+      if (fileItem.size > 10000000) {
+        alert('Each File should be less than 10 MB of size.');
+        return;
+      }
+    }
+    for (let j = 0; j < this.uploader.queue.length; j++) {
+      const data = new FormData();
+      const fileItem = this.uploader.queue[j]._file;
+      console.log(fileItem.name);
+      data.append('file', fileItem);
+      data.append('fileSeq', 'seq' + j);
+    }
+    this.uploader.clearQueue();
+  }
+
+  fileUpload(data: FormData) {
+    console.log(FormData);
+  }
+
+  ngOnInit() { }
 
   onFormSubmit(form) {
     console.log(form);
