@@ -33,6 +33,7 @@ import { FileuploadComponent } from '../fota-initiator/fileupload/fileupload.com
 import { ViewUploadComponent } from '../fota-initiator/view-upload/view-upload.component';
 import { FileuploadscreenComponent } from '../fota-initiator/fileupload/fileuploadscreen/fileuploadscreen.component';
 import { FotaNavComponent } from '../fota-initiator/fota-nav/fota-nav.component';
+import { FotaUploadInboxComponent } from './fota-upload-inbox/fota-upload-inbox.component';
 const fotaRoutes: Routes = [
   {
     path: '',
@@ -56,6 +57,10 @@ const fotaRoutes: Routes = [
           {
             path: 'viewupload',
             component: ViewUploadComponent
+          },
+          {
+            path: 'uploadinbox',
+            component: FotaUploadInboxComponent
           }
         
       
@@ -72,7 +77,8 @@ const fotaRoutes: Routes = [
     FotaInitiatorComponent,
     FileuploadComponent,
     ViewUploadComponent,
-    FileuploadscreenComponent
+    FileuploadscreenComponent,
+    FotaUploadInboxComponent
   ],
   imports: [
     CommonModule,

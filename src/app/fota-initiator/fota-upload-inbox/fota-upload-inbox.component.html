@@ -1,0 +1,16 @@
+<div class="row">
+        <div id="site-page-title" class="col-12 heading">
+            <h4>User List</h4>
+        </div>
+    </div>
+        <div class="col-12">
+          
+                <button mat-raised-button (click)="addTraining()">Add User</button>
+            
+                <button mat-raised-button (click)="downloadExcel()">Download Excel</button>
+          
+        </div>
+        <div class="clearfix"></div>
+    
+    
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover"></table>
