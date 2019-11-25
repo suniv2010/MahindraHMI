@@ -2,9 +2,11 @@
     box-sizing: border-box;
   }
 
+  mat-form-field {
+  width: 100%;
+}
 /* Create four equal columns that floats next to each other */
 .column-1 {
-  float: left;
   width: 25%;
   padding: 10px;
 }
@@ -22,12 +24,8 @@
   clear: both;
 }
 
-.example-full-width {
-    width: 84%;
-  }
-
   .mat-checkbox {
-    margin-top: 25px;
+    float: right;
   }
 
   .button-row {
@@ -49,8 +47,8 @@
 }
 
 .page-width{
-  width: 80%;
-  margin-left:20%
+  width: 100%;
+  margin-left:25%
 }
 
 .margin-fix{

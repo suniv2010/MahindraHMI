@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+  }
+
+mat-form-field {
+  width: 100%;
+}
+/* Create four equal columns that floats next to each other */
+.column-1 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.column-2 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+.column-3 {
+    float: left;
+    width: 100%;
+    padding: 10px;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+  .mat-checkbox {
+    margin-top: 25px;
+  }
+
+  .button-row {
+    margin: 0 auto;
+  }
+
+  .mat-icon {
+    float : left;
+  }
+  
+  .center {
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .swal-button {
+    background: #E53044;
+}
+
+.page-width{
+  width: 80%;
+  margin-left:25%
+}
+
+.margin-fix{
+  margin-left: 10px;
+}

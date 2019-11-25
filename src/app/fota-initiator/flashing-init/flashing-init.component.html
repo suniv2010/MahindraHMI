@@ -1,1 +1,62 @@
-<p>flashing-init works!</p>
+<div class="row page-width">
+    <form [formGroup]="flashinginitForm">
+        <div class="row">
+            <div class="column-1">
+                <mat-form-field>
+                    <mat-label>FW Type</mat-label>
+                    <mat-select required formControlName="FWTypeFormControl">
+                        <mat-option *ngFor="let FWType of FWTypes" [value]="FWType.value">
+                            {{ FWType.value }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="column-1">
+                <mat-form-field>
+                    <mat-label>FW Type</mat-label>
+                    <mat-select required formControlName="FW_FilenameFormControl">
+                        <mat-option *ngFor="let FW_Filename of FW_Filenames" [value]="FW_Filename.value">
+                            {{ FW_Filename.value }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="column-2">
+                <mat-form-field>
+                    <mat-label>Applicable Variant</mat-label>
+                    <mat-select multiple required formControlName="PaltformFormControl">
+                        <mat-option *ngFor="let Paltform of Paltforms" [value]="Paltform.value">
+                            {{ Paltform.value }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="column-2">
+                <mat-form-field>
+                    <mat-label>Applicable Sub-Variant</mat-label>
+                    <mat-select multiple required formControlName="IMEIFormControl">
+                        <mat-option *ngFor="let IMEI of IMEIs" [value]="IMEI.value">
+                            {{ IMEI.value }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-3">
+                <mat-form-field>
+                    <input matInput placeholder="Reason for Initiation" formControlName="ReasonFormControl" />
+                </mat-form-field>
+                <mat-error>
+                    <span *ngIf="
+                  !flashinginitForm.get('ReasonFormControl').valid &&
+                  flashinginitForm.get('ReasonFormControl').touched
+                ">Reason for Initiation!!!</span>
+                </mat-error>
+            </div>
+        </div>
+        <div class="center">
+            <button mat-raised-button color="primary" type="submit" (click)=Initate()>Initate</button>
+        </div>
+    </form>
+</div>
