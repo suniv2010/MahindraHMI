@@ -27,6 +27,7 @@ export class FlashingInitComponent implements OnInit {
   }
 
   flashinginitForm: FormGroup;
+
   constructor(private fb: FormBuilder) {
     this.flashinginitForm = fb.group({
       FWTypeFormControl: [null],
@@ -72,8 +73,8 @@ export class FlashingInitComponent implements OnInit {
     { value: '8645060309xxxx11' }
   ];
 
-  Initate(data: FormData) {
-    console.log(FormData);
+  Initate() {
+    console.log(this.flashinginitForm.value);
   }
 
 }
