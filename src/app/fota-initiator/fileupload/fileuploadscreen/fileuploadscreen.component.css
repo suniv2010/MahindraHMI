@@ -43,3 +43,16 @@
     text-align: center;
     padding: 10px;
   }
+
+  .swal-button {
+    background: #E53044;
+}
+
+.page-width{
+  width: 80%;
+  margin-left:20%
+}
+
+.margin-fix{
+  margin-left: 10px;
+}

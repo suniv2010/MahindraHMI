@@ -1,5 +1,6 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import swal from 'sweetalert2';
 import { FileUploader } from 'ng2-file-upload';
 
 export interface ApplicableSegment {
@@ -98,7 +99,47 @@ export class FileuploadscreenComponent implements OnInit {
     console.log(FormData);
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    swal({
+      title: "(Upload Approver)</br>Do you want to view upload status?",
+      text: "Firmware upload Request ID.FWUP000023 created successfully.Email sent to configured Email ID.",
+      type: 'success',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes, I am sure!',
+      cancelButtonText: "No, cancel it!",
+    })
+      .then((willDelete) => {
+
+        if (willDelete.value) {
+          swal("Success");
+        } else {
+          swal("Fail");
+        }
+
+        console.log(willDelete)
+      });
+
+    swal({
+      title: "Firmware Upload failed.",
+      text: "Do you want to attempt a retry?",
+      type: 'error',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes, retry!',
+      cancelButtonText: "No, cancel!",
+    })
+      .then((willDelete) => {
+
+        if (willDelete.value) {
+          swal("Success");
+        } else {
+          swal("Fail");
+        }
+
+        console.log(willDelete)
+      });
+  }
 
   onFormSubmit(form) {
     console.log(form);

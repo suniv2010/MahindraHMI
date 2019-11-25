@@ -10,8 +10,6 @@
 header { min-height: 75px; }
 
 .eb-logo {
-    padding: 24px;
-    background: #e31837;
     float: left;
 }
 
@@ -20,7 +18,7 @@ header { min-height: 75px; }
   
  
   
-  header.dark { background-color: #e31837; }
+  header.dark { background-color: #E53044; }
   header.light { background-color: #fff; }
   
   /* Navigation Styles */
