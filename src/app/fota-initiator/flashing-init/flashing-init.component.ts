@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatOption } from '@angular/material';
 
 export interface FWType {
   value: string;
@@ -59,7 +60,6 @@ export class FlashingInitComponent implements OnInit {
   ];
 
   IMEIs: IMEI[] = [
-    { value: 'Select All' },
     { value: '8645060309xxxx1' },
     { value: '8645060309xxxx2' },
     { value: '8645060309xxxx3' },
@@ -72,6 +72,25 @@ export class FlashingInitComponent implements OnInit {
     { value: '8645060309xxxx10' },
     { value: '8645060309xxxx11' }
   ];
+  @ViewChild('allSelected', { static: false }) private allSelected: MatOption;
+
+  tosslePerOne(all) {
+    if (this.allSelected.selected) {
+      this.allSelected.deselect();
+      return false;
+    }
+    if (this.flashinginitForm.controls.IMEIFormControl.value.length == this.IMEIs.length)
+      this.allSelected.select();
+
+  }
+  toggleAllSelection() {
+    if (this.allSelected.selected) {
+      this.flashinginitForm.controls.IMEIFormControl
+        .patchValue([...this.IMEIs.map(item => item.value), 0]);
+    } else {
+      this.flashinginitForm.controls.IMEIFormControl.patchValue([]);
+    }
+  }
 
   Initate() {
     console.log(this.flashinginitForm.value);

@@ -13,7 +13,7 @@
             </div>
             <div class="column-1">
                 <mat-form-field>
-                    <mat-label>FW Type</mat-label>
+                    <mat-label>FW/FilenameType</mat-label>
                     <mat-select required formControlName="FW_FilenameFormControl">
                         <mat-option *ngFor="let FW_Filename of FW_Filenames" [value]="FW_Filename.value">
                             {{ FW_Filename.value }}
@@ -23,7 +23,7 @@
             </div>
             <div class="column-2">
                 <mat-form-field>
-                    <mat-label>Applicable Variant</mat-label>
+                    <mat-label>Platform</mat-label>
                     <mat-select multiple required formControlName="PaltformFormControl">
                         <mat-option *ngFor="let Paltform of Paltforms" [value]="Paltform.value">
                             {{ Paltform.value }}
@@ -33,8 +33,9 @@
             </div>
             <div class="column-2">
                 <mat-form-field>
-                    <mat-label>Applicable Sub-Variant</mat-label>
+                    <mat-label>IMEI</mat-label>
                     <mat-select multiple required formControlName="IMEIFormControl">
+                        <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">Select All</mat-option>
                         <mat-option *ngFor="let IMEI of IMEIs" [value]="IMEI.value">
                             {{ IMEI.value }}
                         </mat-option>
