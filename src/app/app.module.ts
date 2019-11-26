@@ -11,7 +11,6 @@ import { DataTablesModule } from 'angular-datatables';
 import { AddUserComponent } from './users/add-user/add-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
-import { FileUploadModule } from 'ng2-file-upload';
 
 import {
   MatButtonModule,
@@ -35,6 +34,8 @@ import {
 
 
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
+import { FileUploadModule } from 'ng2-file-upload';
+
 
 
 const routes: Routes = [
@@ -49,12 +50,11 @@ const routes: Routes = [
   {
     path: 'inithome',
     loadChildren: () => import('./fota-initiator/fota-initiator.module').then(mod => mod.FotaInitiatorModule),
-    },
+  },
   {
     path: 'users',
     component: UsersComponent
   }
-
 ];
 
 @NgModule({
@@ -65,10 +65,9 @@ const routes: Routes = [
     SidebarComponent,
     AddUserComponent,
     ForgetPasswordComponent,
-   
     TopNavigationComponent
-   
-   
+
+
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -95,7 +94,6 @@ const routes: Routes = [
     MatGridListModule,
     FormsModule,
     FileUploadModule
-
   ],
   exports: [
     MatButtonModule,
@@ -116,7 +114,7 @@ const routes: Routes = [
   ],
   providers: [{ provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }],
   bootstrap: [AppComponent],
-  
+
   entryComponents: [
     AddUserComponent
   ]

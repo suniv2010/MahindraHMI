@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { DataTablesModule } from 'angular-datatables';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
-// tslint:disable-next-line:max-line-length
 import {
   MatButtonModule,
   MatMenuModule,
@@ -29,11 +27,14 @@ import {
 import { InithomeComponent } from '../fota-initiator/inithome/inithome.component';
 import { FotaInitiatorComponent } from '../fota-initiator/fota-initiator/fota-initiator.component';
 
-import { FileuploadComponent } from '../fota-initiator/fileupload/fileupload.component';
 import { ViewUploadComponent } from '../fota-initiator/view-upload/view-upload.component';
 import { FileuploadscreenComponent } from '../fota-initiator/fileupload/fileuploadscreen/fileuploadscreen.component';
 import { FotaNavComponent } from '../fota-initiator/fota-nav/fota-nav.component';
 import { FotaUploadInboxComponent } from './fota-upload-inbox/fota-upload-inbox.component';
+import { FlashingInitComponent } from './flashing-init/flashing-init.component';
+
+import { FileUploadModule } from 'ng2-file-upload';
+
 const fotaRoutes: Routes = [
   {
     path: '',
@@ -45,10 +46,7 @@ const fotaRoutes: Routes = [
             path: '',
             component: InithomeComponent
           },
-          {
-            path: 'fileupload',
-            component: FileuploadComponent
-          },
+          
           {
             path: 'fileupload/fileuploadscreen',
             component: FileuploadscreenComponent
@@ -61,9 +59,12 @@ const fotaRoutes: Routes = [
           {
             path: 'uploadinbox',
             component: FotaUploadInboxComponent
-          }
-        
-      
+          },      
+     
+      {
+        path: 'flashinginit',
+        component: FlashingInitComponent
+      }
     ]
   }
 ];
@@ -71,19 +72,19 @@ const fotaRoutes: Routes = [
 
 
 @NgModule({
-  declarations: [   
+  declarations: [
     InithomeComponent,
     FotaNavComponent,
     FotaInitiatorComponent,
-    FileuploadComponent,
     ViewUploadComponent,
     FileuploadscreenComponent,
-    FotaUploadInboxComponent
+    FotaUploadInboxComponent,
+    FlashingInitComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(fotaRoutes),
-   
+
     DataTablesModule,
     ReactiveFormsModule,
     MatButtonModule,
@@ -91,7 +92,7 @@ const fotaRoutes: Routes = [
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    
+
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
@@ -102,7 +103,8 @@ const fotaRoutes: Routes = [
     MatSlideToggleModule,
     MatCheckboxModule,
     MatGridListModule,
-    FormsModule
+    FormsModule,
+    FileUploadModule
   ],
   exports: [
     MatButtonModule,
@@ -110,7 +112,7 @@ const fotaRoutes: Routes = [
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-  
+
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
@@ -119,9 +121,10 @@ const fotaRoutes: Routes = [
     MatSelectModule,
     MatOptionModule,
     MatSlideToggleModule,
-    MatGridListModule
+    MatGridListModule,
+    FileUploadModule
   ],
-  providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher} ],
-  
+  providers: [{ provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }],
+
 })
 export class FotaInitiatorModule { }

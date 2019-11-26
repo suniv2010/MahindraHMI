@@ -22,11 +22,15 @@ body {
     background: #918a8a;
     z-index: -1;
     font-size: 15px;
-   
+    position: absolute;
+    with:100%;
 }
 
 #site-page-title{
-      position: relative;
+      position: absolute;
+}
+#site-page-title h4{
+   margin-left: 50px;
 }
 .popup_header{
     background: #e31837 !important;
@@ -38,13 +42,41 @@ body {
 .row button{
     margin:2px;
     }
-button{
+button {
     margin:2px !important;
-    background: #e31837 !important;
+    background: #E53044 !important;
     color:#fff !important;
 }
 
 .fa-10x {
     font-size: 25em;
     color:#6ba1ba
+}
+.fota-content{
+    width: 100%;
+    height:100%;
+    margin-top:20px;
+}
+.fota-heading{
+    width: 100%;
+    height:100%;
+    background: #bbb !important;
+    position: relative;
+}
+.fota-heading h4{
+   padding-left:30px;
+}
+.content {
+    width: 100%;
+    height:100%;
+    padding: 30px;
+   
+}
+.mat-form-field-infix {
+    display: block;
+    position: relative;
+   
+}
+mat-form-field{
+    width: 100% !important;
 }

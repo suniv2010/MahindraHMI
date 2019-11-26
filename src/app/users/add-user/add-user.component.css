@@ -12,12 +12,10 @@
     margin-bottom: 10px;
 }
 
-.mat-form-field-infix {
-    display: block;
-    position: relative;
-    flex: auto;
-    min-width: 0;
+mat-form-field{
+    width: 100% !important;
 }
+
     
 
 .demo-full-width{
