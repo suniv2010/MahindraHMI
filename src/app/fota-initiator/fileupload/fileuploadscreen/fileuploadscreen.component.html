@@ -63,14 +63,14 @@
         </mat-form-field>
       </div>
       <div class="column-2">
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
           <textarea matInput placeholder="Remarks" rows="1" fromControlName="remarksFormControl"></textarea>
         </mat-form-field>
       </div>
     </div>
     <div class="row">
       <div class="column-2">
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
           <input matInput placeholder="Assign Name" formControlName="AassignNameFormControl" />
         </mat-form-field>
         <mat-error>
@@ -109,7 +109,6 @@
         </tr>
       </tbody>
     </table>
-    <br>
     <div class="center">
       <button mat-raised-button color="primary" type="submit" (click)=uploadSubmit()>Upload Data</button>
     </div>

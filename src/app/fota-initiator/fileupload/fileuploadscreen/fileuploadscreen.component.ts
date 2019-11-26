@@ -140,8 +140,4 @@ export class FileuploadscreenComponent implements OnInit {
         console.log(willDelete)
       });
   }
-
-  onFormSubmit(form) {
-    console.log(form);
-  }
 }
