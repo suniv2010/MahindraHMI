@@ -1,13 +1,12 @@
-<div class="row">
-        <div id="site-page-title" class="col-12 heading">
-            <h4>View Upload Screen</h4>
-        </div>
+<div class="fota-heading">
+    <div>
+        <h4>View Upload Screen</h4>
     </div>
-        <div class="col-12">
-                    
-                <button mat-raised-button (click)="downloadExcel()">Download Excel</button>
-          
-        </div>
-        <div class="clearfix"></div>
-
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover"></table>
+    <div>
+        <button mat-raised-button (click)="downloadExcel()">Download Excel</button>
+    </div>
+</div>
+<div class="fota-content">
+    <div class="clearfix"></div>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover"></table>
+</div>
