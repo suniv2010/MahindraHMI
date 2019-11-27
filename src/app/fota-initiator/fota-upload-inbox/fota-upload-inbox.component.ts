@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-fota-upload-inbox',
@@ -23,49 +24,55 @@ export class FotaUploadInboxComponent implements OnInit {
         title: 'User name',
         data: 'username'
       }, {
-        title: 'User type',
-        data: 'usertype'
+        title: 'Activity Type',
+        data: 'activitytype'
       }, {
-        title: 'Status',
-        data: 'status'
+        title: 'Request ID',
+        data: 'requestid'
       },
       {
-        title: 'Activation Date',
-        data: 'activationdate'
+        title: 'Activity Date-Time',
+        data: 'activitydatetime'
       },
       {
-        title: 'Initiator',
-        data: 'initiator'
+        title: 'FW Type',
+        data: 'fwtype'
       },
       {
-        title: 'Approver',
-        data: 'approver'
-      },
-      {
-        title: 'Head',
-        data: 'head'
+        title: 'Approval',
+        data: 'approval'
       },
       {
         title: 'Action',
         render(id: number) {
-                        return '<div class=\'actions-buttons center\' id=\'' + id + '\'>'
-                            + '<button class="waves-effect btn" view-person-id="3">Delete</button> '
-                            + '<button class="waves-effect btn" view-person-id="3">Edit</button>'
-                            + '</div>';
-                    }
+          return '<div class=\'actions-buttons center\' id=\'' + id + '\'>'
+            + '<button class="waves-effect btn" view-person-id="3">Delete</button> '
+            + '<button class="waves-effect btn" view-person-id="3">Edit</button>'
+            + '</div>';
+        }
       }
-    ],
-      /*rowCallback: (row: Node, data: any[] | Object, index: number) => {
-        const self = this;
-        // Unbind first in order to avoid any duplicate handler
-        // (see https://github.com/l-lin/angular-datatables/issues/87)
-        $('td', row).unbind('click');
-        $('td', row).bind('click', () => {
-          self.someClickHandler(data,index);
-        });
-        return row;
-      }*/
+      ],
     };
+
+    swal({
+      title: "(Upload Approver)</br>Do you want to view upload status?",
+      text: "Firmware upload Request ID. FWUP000001 approved. Email sent to configured Email ID.",
+      type: 'success',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes, I am sure!',
+      cancelButtonText: "No, cancel it!",
+    })
+      .then((willDelete) => {
+
+        if (willDelete.value) {
+          swal("Success");
+        } else {
+          swal("Fail");
+        }
+
+        console.log(willDelete)
+      });
   }
 
 }
