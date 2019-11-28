@@ -37,6 +37,7 @@ import { TopNavigationComponent } from './top-navigation/top-navigation.componen
 import { FileUploadModule } from 'ng2-file-upload';
 import { ActivitystatusAdminComponent } from './users/activitystatus-admin/activitystatus-admin.component';
 import { FlashingstatusComponent } from './users/flashingstatus/flashingstatus.component';
+import { OverallstatusscreenComponent } from './users/overallstatusscreen/overallstatusscreen.component';
 
 
 
@@ -60,9 +61,14 @@ const routes: Routes = [
   {
     path: 'activitystatusadmin',
     component: ActivitystatusAdminComponent
-  }, {
+  },
+  {
     path: 'flashingstatus',
     component: FlashingstatusComponent
+  },
+  {
+    path: 'overallstatusscreen',
+    component: OverallstatusscreenComponent
   }
 ];
 
@@ -76,7 +82,8 @@ const routes: Routes = [
     ForgetPasswordComponent,
     TopNavigationComponent,
     ActivitystatusAdminComponent,
-    FlashingstatusComponent
+    FlashingstatusComponent,
+    OverallstatusscreenComponent
 
 
   ],

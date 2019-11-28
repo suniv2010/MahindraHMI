@@ -1,0 +1,13 @@
+<div class="fota-heading">
+    <div>
+        <h4>Over all status screen</h4>
+    </div>
+</div>
+<div class="fota-content">
+    <div>
+        <button mat-raised-button (click)="downloadExcel()" color="accent">Download Excel</button>
+        <button mat-raised-button (click)="flash()" color="accent">Flash</button>
+    </div>
+    <div class="clearfix"></div>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover"></table>
+</div>
