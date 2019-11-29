@@ -38,6 +38,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { ActivitystatusAdminComponent } from './users/activitystatus-admin/activitystatus-admin.component';
 import { FlashingstatusComponent } from './users/flashingstatus/flashingstatus.component';
 import { OverallstatusscreenComponent } from './users/overallstatusscreen/overallstatusscreen.component';
+import { ViewimeiComponent } from './users/viewimei/viewimei.component';
 
 
 
@@ -69,6 +70,10 @@ const routes: Routes = [
   {
     path: 'overallstatusscreen',
     component: OverallstatusscreenComponent
+  },
+  {
+    path: 'viewimei',
+    component: ViewimeiComponent
   }
 ];
 
@@ -83,7 +88,8 @@ const routes: Routes = [
     TopNavigationComponent,
     ActivitystatusAdminComponent,
     FlashingstatusComponent,
-    OverallstatusscreenComponent
+    OverallstatusscreenComponent,
+    ViewimeiComponent
 
 
   ],
