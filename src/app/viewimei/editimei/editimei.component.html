@@ -1,0 +1,48 @@
+<mat-toolbar class="popup_header">  
+        <span>User Creation</span>  
+         
+      
+    </mat-toolbar>  
+      
+    <!-- Card container that binds all togather -->  
+    <mat-card>  
+        <!-- Title of an Card -->  
+      
+      
+        <!-- Actual content starts from here -->  
+        <mat-card-content>  
+            <form [formGroup]="editImeiForm" (ngSubmit)="onFormSubmit(editImeiForm.value)">  
+    
+                    <div class="row">
+                            <div class="col-sm-6">
+                                    <mat-form-field disabled class="demo-full-width ">  
+                                            <input formControlName="imei_no" matInput placeholder="IMEI No">  
+                                        </mat-form-field>  
+                                                                     
+                              </div>
+                              <div class="col-sm-6">
+                                    <mat-form-field>
+                                            <mat-label>Environment</mat-label>
+                                            <mat-select required formControlName="environment">
+                                              <mat-option *ngFor="let env of environments" [value]="environments.value">
+                                                {{ env.value }}
+                                              </mat-option>
+                                            </mat-select>
+                                           <!-- <mat-error>
+                                              <span *ngIf="
+                                                !fileUploadForm.get('ApplicableSegmentsFormControl').valid &&
+                                                fileUploadForm.get('ApplicableSegmentsFormControl').touched
+                                              ">Please enter user Name !!!</span>
+                                            </mat-error>-->
+                                          </mat-form-field> 
+                               
+                              </div>
+                            
+                          </div>
+                          <div>
+                                <button mat-raised-button [disabled]="!editImeiForm.valid" color="accent">Submit</button> 
+                                <button mat-raised-button  color="accent" (click)="close()">Close</button>  
+                            </div>
+            </form>  
+        </mat-card-content>  
+    </mat-card>  
