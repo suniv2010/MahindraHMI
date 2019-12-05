@@ -30,7 +30,8 @@ body {
       position: absolute;
 }
 #site-page-title h4{
-   margin-left: 50px;
+   margin-left: 60px;
+   font-family: serif;
 }
 .popup_header{
     background: #e31837 !important;
@@ -41,6 +42,9 @@ body {
    }
 .row button{
     margin:2px;
+    }
+    .fas{
+        color: #E53044 !important;
     }
 button {
     margin:2px !important;
@@ -56,6 +60,7 @@ button {
     width: 100%;
     height:100%;
     margin-top:20px;
+    padding: 20px;
 }
 .fota-heading{
     width: 100%;
@@ -65,6 +70,7 @@ button {
 }
 .fota-heading h4{
    padding-left:30px;
+   font-family: serif;
 }
 .content {
     width: 100%;

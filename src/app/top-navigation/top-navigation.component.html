@@ -3,8 +3,20 @@
 
     <div id="site-header" class="eb-logo">
         <a href="https://www.mahindra.com/" rel="home">
-            <img class="img-responsive" align="left" src="http://bhilwaraagro.com/img/mahindralogo.png" width="350px"
+            <img class="img-responsive"  src="http://bhilwaraagro.com/img/mahindralogo.png" width="350px"
                 height="100px" alt="Elektrobit">
         </a>
     </div>
+    <nav class="navbar navbar-expand-md " style="float: right;">
+      
+          <div class="btn-group " >
+            <button class="btn dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item">Welcome {{_global.currentUser.username}} </a>
+              <a class="dropdown-item" (click)="logout()"> &nbsp;logout</a>
+            </div>
+          </div>
+        </nav>
 </header>

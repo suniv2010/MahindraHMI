@@ -35,10 +35,11 @@ import {
 
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 import { FileUploadModule } from 'ng2-file-upload';
-import { ActivitystatusAdminComponent } from './users/activitystatus-admin/activitystatus-admin.component';
-import { FlashingstatusComponent } from './users/flashingstatus/flashingstatus.component';
-import { OverallstatusscreenComponent } from './users/overallstatusscreen/overallstatusscreen.component';
-import { ViewimeiComponent } from './users/viewimei/viewimei.component';
+import { ActivitystatusAdminComponent } from './activitystatus-admin/activitystatus-admin.component';
+import { FlashingstatusComponent } from './flashingstatus/flashingstatus.component';
+import { OverallstatusscreenComponent } from './overallstatusscreen/overallstatusscreen.component';
+import { ViewimeiComponent } from './viewimei/viewimei.component';
+import { EditimeiComponent } from './viewimei/editimei/editimei.component';
 
 
 
@@ -89,7 +90,8 @@ const routes: Routes = [
     ActivitystatusAdminComponent,
     FlashingstatusComponent,
     OverallstatusscreenComponent,
-    ViewimeiComponent
+    ViewimeiComponent,
+    EditimeiComponent
 
 
   ],
@@ -140,7 +142,7 @@ const routes: Routes = [
   bootstrap: [AppComponent],
 
   entryComponents: [
-    AddUserComponent
+    AddUserComponent,EditimeiComponent
   ]
 })
 export class AppModule { }

@@ -56,10 +56,10 @@ export class UsersComponent implements OnInit {
       {
         title: 'Action',
         render(id: number) {
-                        return '<div class=\'actions-buttons center\' id=\'' + id + '\'>'
-                            + '<button class="waves-effect btn" view-person-id="3">Delete</button> '
-                            + '<button class="waves-effect btn" view-person-id="3">Edit</button>'
-                            + '</div>';
+          return '<div class=\'actions-buttons center\' id=\'' + id + '\'>'
+          + '<i class="fas fa-edit fa-lg" style="color: #3f51b5;" edit></i> '
+          + '<i class="fas fa-times-circle fa-lg" style="color: #3f51b5;" delete></i></i> '
+          + '</div>';
                     }
       }
     ],

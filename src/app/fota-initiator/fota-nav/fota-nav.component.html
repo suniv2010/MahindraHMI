@@ -8,17 +8,30 @@
         Fota Initiator
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Upload New</a>
-        <a class="dropdown-item" href="#">View Uploads</a>
+        <a class="dropdown-item" routerLink="./fileupload/fileuploadscreen">Upload New</a>
+        <a class="dropdown-item" routerLink="./viewupload">View Uploads</a>
+
+      </div>
+    </li>
+   <!-- <li class="nav-item">
+      <a class="nav-link" routerLink="./uploadinbox">View Status</a>
+    </li>-->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Status
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="/activitystatusadmin">Activity Status</a>
+        <a class="dropdown-item" routerLink="/flashingstatus">Flashing Status</a>
+        <a class="dropdown-item" routerLink="/activitystatusadmin">overallstatusscreen</a>
+       
 
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Upload File</a>
+      <a class="nav-link" routerLink="/viewimei">IMEI</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">View Status</a>
-    </li>
+   
 
   </ul>
 </nav>

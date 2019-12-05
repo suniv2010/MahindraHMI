@@ -34,7 +34,7 @@ import { FotaUploadInboxComponent } from './fota-upload-inbox/fota-upload-inbox.
 import { FlashingInitComponent } from './flashing-init/flashing-init.component';
 
 import { FileUploadModule } from 'ng2-file-upload';
-import { ActivitystatusAdminComponent } from '../users/activitystatus-admin/activitystatus-admin.component';
+import { ActivitystatusAdminComponent } from '../activitystatus-admin/activitystatus-admin.component';
 
 const fotaRoutes: Routes = [
   {

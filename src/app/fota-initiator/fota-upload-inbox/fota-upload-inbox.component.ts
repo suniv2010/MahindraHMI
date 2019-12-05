@@ -46,9 +46,9 @@ export class FotaUploadInboxComponent implements OnInit {
         title: 'Action',
         render(id: number) {
           return '<div class=\'actions-buttons center\' id=\'' + id + '\'>'
-            + '<button class="waves-effect btn" view-person-id="3">Delete</button> '
-            + '<button class="waves-effect btn" view-person-id="3">Edit</button>'
-            + '</div>';
+          + '<i class="fas fa-edit fa-lg" style="color: #3f51b5;" edit></i> '
+          + '<i class="fas fa-times-circle fa-lg" style="color: #3f51b5;" delete></i></i> '
+          + '</div>';
         }
       }
       ],
@@ -59,7 +59,7 @@ export class FotaUploadInboxComponent implements OnInit {
       text: "Firmware upload Request ID. FWUP000001 approved. Email sent to configured Email ID.",
       type: 'success',
       showConfirmButton: true,
-      showCancelButton: true,
+      showCancelButton: true, 
       confirmButtonText: 'Yes, I am sure!',
       cancelButtonText: "No, cancel it!",
     })
